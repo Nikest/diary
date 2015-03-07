@@ -1,0 +1,60 @@
+@media screen and (max-width: 790px) {
+    header {
+        border-radius: 0;
+        width: calc(100% - 24px);
+        position: fixed;
+        top: 0;
+    }
+    .menu {
+        background: #000000;
+        height: 100vh;
+        color: #f9f9f9;
+        margin: 0;
+        padding: 6px 6px 0;
+        position: fixed;
+        top: 42px;
+        left: 0;
+    }
+    .menu li a, .menu li span, .button {
+        border-radius: 0;
+    }
+    .menu li span, .menu li a:hover {
+        color: #2B587A;
+    }
+    section {
+        width: calc(100% - 151px);
+        min-height: 100vh;
+        background: #fff;
+        margin-left: 147px;
+        margin-top: 30px;
+        padding: 0;
+    }
+    #list {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        border-right: none;
+        border-left: none;
+    }
+    .littleLabel {
+        width: calc(100% - 45px);
+        float: none;
+        margin: 0;
+        padding: 0;
+    }
+    .littleLabel input {
+        width: 100%;
+    }
+    .littleLabel input[type='radio'] {
+        width: auto;
+    }
+    #list > * {
+        width: calc(100% + 4px);
+        margin-bottom: 12px;
+    }
+    .create h1 {
+        background: #e1e7ed;
+        color: #2B587A;
+    }
+}

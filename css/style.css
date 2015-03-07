@@ -1,0 +1,395 @@
+@import "reset.css";
+@import "jquery-ui-1.9.2.custom.css";
+
+::selection {
+  background: #345880;
+  color: #f9f9f9;
+}
+
+.clear {
+  clear: both;
+}
+
+#loading {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#loading img {
+  position: fixed;
+  top: calc(50% - 64px);
+  left: calc(50% - 64px);
+}
+
+body {
+  opacity: 0;
+  transition: 1s;
+  overflow-x: hidden;
+}
+
+/*
+* {
+    transition: 0.5s;
+}
+
+/* background color dark*/
+header, .create h1, .darkStyle, #loading, #deleterBox > div > h2 {
+  background: #4e729a;
+}
+
+/* background color light*/
+.menu li a:hover, .lightStyle, .assess:hover {
+  background: #e1e7ed;
+}
+
+/* background color ultra-light*/
+.create {
+  background: #f7f7f7;
+}
+
+/* text color light*/
+header, .create h1, .darkStyle, #deleterBox > div > h2 {
+  color: #f9f9f9;
+}
+
+/* text color dark*/
+.menu, .lightStyle, label, .assess:hover, #list > div > .edit, #list > div > .edit:hover, #list > div > .delet, #list > div > .delet:hover, #list > div > .style, #list > div > .style:hover{
+  color: #2B587A;
+}
+
+/* buttons */
+.button {
+  border: none;
+  outline: none;
+  padding: 5px 0 5px;
+  width: 120px;
+  cursor: pointer;
+  font-family: 'Tahoma', sans-serif;
+  text-align: center;
+  margin: 0 0 20px 20px;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+button:active {
+  padding: 6px 0 4px;
+}
+
+header {
+  width: 770px;
+  margin: auto;
+  padding: 12px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  z-index: 9999;
+}
+
+header img {
+  width: auto;
+  height: 18px;
+  float: left;
+  margin-right: 6px;
+}
+
+header h1 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 16px;
+}
+
+section {
+  width: 782px;
+  margin: auto;
+}
+
+.menu {
+  width: 135px;
+  font-family: 'Tahoma', sans-serif;
+  margin: 12px 0;
+  display: inline-block;
+}
+
+.menu li {
+  display: block;
+  width: 135px;
+}
+
+.menu li span {
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 7px;
+  margin-right: 3px;
+  border-radius: 3px;
+  cursor: default;
+}
+
+.menu li a {
+  display: block;
+  line-height: 1.182;
+  font-size: 12px;
+  padding: 6px;
+  border-radius: 3px;
+  width: 90px;
+  float: left;
+}
+
+#list {
+  border-left: 2px solid #d9e0e7;
+  border-right: 2px solid #d9e0e7;
+  width: 625px;
+  min-height: 100px;
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+}
+
+#list > * {
+  width: calc(100% - 12px);
+  margin: 12px auto;
+}
+
+.create h1 {
+  text-align: center;
+  padding: 6px 0 6px;
+  cursor: pointer;
+}
+
+.create label {
+  display: block;
+  margin: 10px 20px;
+}
+
+.create input {
+  width: calc(100% - 6px);
+  margin: 5px 0;
+  font-family: 'Tahoma', sans-serif;
+  outline: none;
+  border: 1px solid #c3cbd4;
+}
+
+.create textarea {
+  width: calc(100% - 8px);
+  height: 100px;
+  font-family: 'Tahoma', sans-serif;
+  outline: none;
+  border: 1px solid #c3cbd4;
+  margin-top: 6px;
+}
+
+.create input, .create textarea {
+  padding-left: 6px;
+}
+
+.create label {
+  font-weight: bold;
+}
+
+#mapMarker {
+  position: absolute;
+  opacity: 0;
+}
+
+#createMap {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #c3cbd4;
+  margin: 6px 0;
+}
+
+.littleLabel {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.littleLabel input {
+  width: auto;
+}
+
+.littleLabel input + label {
+  display: inline;
+  margin-left: -6px;
+  font-weight: lighter;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.littleLabel input:checked + label {
+  text-decoration: underline;
+}
+
+.littleLabel input + label span {
+  display: inline-block;
+  vertical-align: top;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 1px solid #c3cbd4;
+  border-radius: 100%;
+  margin-left: -8px;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+.littleLabel input:checked + label span {
+  background: #c3cbd4;
+}
+
+#list > div {
+  border-bottom: 1px solid #acc0d8;
+  padding: 20px 0 34px;
+  position: relative;
+}
+
+#list > div > div {
+  width: 100%;
+  height: 300px;
+}
+
+#list > div > h2 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+
+}
+
+#list > div > span{
+  font-size: 12px;
+  color: #a3a3a3;
+  cursor: default;
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  margin-top: 6px;
+}
+
+#list > div > span:hover{
+  font-size: 12px;
+  color: #323232;
+}
+
+#list > div > p {
+  margin: 5px 0 15px;
+  width: calc(100% - 24px);
+  padding: 0 12px;
+  text-align: justify;
+}
+
+#list > div > .edit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#list > div > .edit:hover, #list > div > .delet:hover, #list > div > .style:hover {
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+#list > div > textarea {
+  font-family: 'Arial', sans-serif;
+  width: calc(100% - 19px);
+  margin: 6px 12px;
+}
+
+#list > div > textarea + .button {
+  margin: 0 12px;
+}
+
+#list > div > .style {
+  position: absolute;
+  bottom: 0;
+  left: 130px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#list > div > iframe, #list > div > img {
+  width: 100%;
+  height: 400px;
+}
+
+#list > div > .delet {
+  position: absolute;
+  bottom: 0;
+  left: 267px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#list > div > .assess {
+  width: auto;
+  display: inline-block;
+  background-image: url('../img/heart.png');
+  background-repeat: no-repeat;
+  background-size: auto 12px;
+  background-position: calc(100% - 6px) center;
+  position: absolute;
+  right: 0;
+  padding: 6px 24px 6px 6px;
+  border-radius: 3px;
+}
+
+#list > div > span.assess:hover {
+  color: #2B587A;
+}
+
+#deleterBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.50);
+  z-index: 9999;
+  display: none;
+}
+
+#deleterBox > div {
+  width: 300px;
+  min-height: 100px;
+  background: #f9f9f9;
+  position: fixed;
+  top: 50%;
+  margin-top: -80px;
+  left: 50%;
+  margin-left: -150px;
+  overflow: hidden;
+}
+
+#deleterBox > div > h2 {
+  padding: 12px;
+  font-family: 'Tahoma', sans-serif;
+}
+
+#deleterBox > div > p {
+  padding: 12px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  color: #323232;
+}
+
+#allMap {
+  width: calc(100% - 14px);
+  height: 300px;
+  margin: auto;
+  border: 1px solid #c3cbd4;
+}
+
+#picker {
+  margin: 1px 12px;
+  padding:0;
+  border:0;
+  width:100px;
+  height:24px;
+  border-right:20px solid #000000;
+  line-height:20px;
+  cursor: pointer;
+}

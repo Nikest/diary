@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <title>ДНЕВНИК</title>
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript" src="js/colpick.js"></script>
+    <link rel="stylesheet" href="css/colpick.css">
+</head>
+<body onhashchange="hash()">
+<!--<div id="loading"><img src="img/logo.png"></div>-->
+
+<header><img src="img/logo.png"><h1>ДНЕВНИК</h1></header>
+
+<section>    
+    <ul class="menu">
+        <li id="newButt"><a href="#new">Новое событие</a></li>
+        <li id="allButt"><a href="#all">Все события</a><span class="numberEvents"></span> </li>
+        <li id="mapButt"><a href="#map">Где я был</a></li>
+        <!-- <li id="clearButt" onclick="localStorage.clear()"><a href="#clear">Удалить все</a></li>-->
+
+     </ul>
+     <div id="list">
+         <article class="create">
+             <h1>Новое событие</h1>
+             <div>
+                 <label><span>Название события:</span></br> <input type="text" id="eventTitle"></label>
+                 <label><span>Описание события:</span></br> <textarea id="eventDescription"></textarea></label>
+                 <label class="littleLabel" style="float: left"><span>Дата:</span></br> <input type="text" id="eventDate" placeholder="yyyy-mm-dd"></label>
+
+                 <label class="littleLabel" style="float: right; position: relative; left: -5px">
+                     <span>Оценка:</span></br>
+                     <input type="radio" name="assess" value="Хорошо" id="assess_1" checked><label for="assess_1"><span></span>Хорошо</label>
+                     <input type="radio" name="assess" value="Нейтрально" id="assess_2"><label for="assess_2"><span></span>Нейтрально</label>
+                     <input type="radio" name="assess" value="Плохо" id="assess_3"><label for="assess_3"><span></span>Плохо</label>
+                 </label>
+                 <div class="clear"></div>
+                 <label><span>Отметьте место на карте:</span>
+                     <input type="radio" name="mapMarker" id="mapMarker">
+
+                     <label style="width: 100%; margin: 0" for="mapMarker"> <div id="createMap"></div></label>
+                 </label>
+                 <label><span>Прикрепить видео (необязательно):</span></br> <input type="text" id="eventYoutube" placeholder="http://"></label>
+                 <label><span>Прикрепить картинку (необязательно):</span></br> <input type="text" id="eventImg" placeholder="http://"></label>
+                 <button id="applyCreator" class="button darkStyle" onclick="validation()">Создать</button><button id="closeCreator" class="button lightStyle" onclick="cancellation()">Отмена</button>
+             </div>
+         </article>
+
+     </div>
+ </section></br>
+
+ <article id="deleterBox">
+     <div>
+         <h2>Удалить сообытие?</h2>
+         <p></p>
+         <button class="button darkStyle" id="deletConf">Удалить</button><button class="button lightStyle"  id="deletUnconf">Отмена</button>
+     </div>
+
+ </article>
+
+ </body>
+ </html>
